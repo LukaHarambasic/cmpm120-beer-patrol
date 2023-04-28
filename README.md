@@ -29,16 +29,17 @@
 ## Todos
 
 - [] Create/Find graphics
-  - [] Rocket -> Beer Tap
-  - [] Ships -> Wiggly empty beer glasses (Weizen)
-  - [] Beer hit animation -> Filling beer glasses (Weizen)
-  - [] Background -> baverian flag pattern
+  - [x] Rocket -> Beer Tap
+  - [x] Ships -> Wiggly empty beer glasses (Weizen)
+  - [x] Beer hit animation -> Filling beer glasses (Weizen)
+  - [x] Background -> baverian flag pattern
+  - [] Alc free beer
 - [] Find music
   - [] Background music - Schlager?
   - [] 4 beer filling sounds
 - [] Adjust layout
   - [] Add clock
-  - [] Remove border
+  - [x] Remove border
 - [] Scenes
   - [] Disclaimer scene
   - [] Title scene
@@ -48,6 +49,9 @@
 - [] Logic
   - [] Add time after enemy got hit (game should also become quicker??)
   - [] Add mouse control for player movement and shooting
+- UI
+  - Add sprite to glasses
+  - Add fill anitmation to glasses
 
 ## Credits
 

@@ -1,8 +1,8 @@
 import { GameObjects } from 'phaser'
 import { Storage } from '../utils/storage'
-import { WIDTH } from '../main'
+import { THEME } from '../main'
 
-export class Ship extends GameObjects.Sprite {
+export class Glas extends GameObjects.Sprite {
   constructor(scene, x, y, texture, frame, pointValue) {
     super(scene, x, y, texture, frame)
     scene.add.existing(this)
@@ -18,6 +18,6 @@ export class Ship extends GameObjects.Sprite {
   }
 
   reset() {
-    this.x = WIDTH
+    this.x = THEME.width
   }
 }
