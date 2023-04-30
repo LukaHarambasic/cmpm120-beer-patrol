@@ -10,6 +10,10 @@ export class Glas extends GameObjects.Sprite {
     this.moveSpeed = Storage.speed
   }
 
+  create() {
+    this.play('idle', true)
+  }
+
   update() {
     this.x -= this.moveSpeed
     if (this.x <= 0 - this.width) {
@@ -18,6 +22,7 @@ export class Glas extends GameObjects.Sprite {
   }
 
   reset() {
+    this.play('idle', true)
     this.x = THEME.width
   }
 }

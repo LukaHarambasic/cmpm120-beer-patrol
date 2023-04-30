@@ -7,13 +7,12 @@ export class TitleScene extends Scene {
   }
 
   preload() {
-    // All assets get loaded here
+    // global asset loading
     this.load.image('background', './graphics/background.png')
     this.load.image('tap', './graphics/tap.png')
     this.load.image('counter', './graphics/counter.png')
-    this.load.atlas('sprites', './graphics/spritesheet.png', './graphics/sprites.json')
+    this.load.atlas('beer', './graphics/spritesheet.png', './graphics/sprites.json')
     // how to use sprite sheets: https://github.com/nathanaltice/Sprite-Sheets/blob/master/src/main.js
-
     this.load.audio('sfx_select', './audio/blip_select12.wav')
   }
 

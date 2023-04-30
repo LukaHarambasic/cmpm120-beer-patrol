@@ -9,16 +9,39 @@ export class GameScene extends Scene {
   }
 
   create() {
+    this.anims.create({
+      key: 'idle',
+      frames: this.anims.generateFrameNames('beer', {
+        prefix: 'beer_empty_',
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 3,
+      repeat: -1,
+    })
+    this.anims.create({
+      key: 'fill',
+      frames: this.anims.generateFrameNames('beer', {
+        prefix: 'beer_full_',
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 8,
+      repeat: 0,
+    })
     console.log('GameScene')
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
     this.counter = this.add.tileSprite(0, THEME.height - 50, THEME.width, 50, 'counter').setOrigin(0, 0)
 
     // TODO I think this should be a group
-    this.glas01 = new Glas(this, THEME.width, 50, 'glas', 0, 30).setOrigin(0, 0)
-    this.glas02 = new Glas(this, THEME.width + 100, 100, 'glas', 0, 20).setOrigin(0, 0)
-    this.glas03 = new Glas(this, THEME.width + 200, 150, 'glas', 0, 10).setOrigin(0, 0)
+    this.glas01 = new Glas(this, THEME.width, 50, 'beer', 0, 30).setOrigin(0, 0)
+    this.glas02 = new Glas(this, THEME.width + 100, 100, 'beer', 0, 20).setOrigin(0, 0)
+    this.glas03 = new Glas(this, THEME.width + 200, 150, 'beer', 0, 10).setOrigin(0, 0)
+    this.glas01.play('idle', true)
+    this.glas02.play('idle', true)
+    this.glas03.play('idle', true)
 
-    // this.p1Rocket = new Rocket(this, WIDTH / 2, HEIGHT - BORDER_UI_SIZE - BORDER_PADDING, 'rocket').setOrigin(0.5, 0)
+    // this.test = this.add.sprite(20, 20, 'beer', 'beer_empty_0')
 
     this.tap = new Tap(this, THEME.width / 2, THEME.height - 100, 'tap').setOrigin(0.5, 0)
 
@@ -38,13 +61,13 @@ export class GameScene extends Scene {
     }
 
     //TODO enable again
-    //this.background.tilePositionX -= 4
+    this.background.tilePositionX -= 1.5
 
     if (!this.gameOver) {
       this.tap.update()
-      // this.glas01.update()
-      // this.glas02.update()
-      // this.glas03.update()
+      this.glas01.update()
+      this.glas02.update()
+      this.glas03.update()
     }
 
     if (this.checkCollision(this.tap, this.glas03)) {
@@ -70,18 +93,10 @@ export class GameScene extends Scene {
   }
 
   fillGlas(glas) {
-    glas.alpha = 0
-    //let boom = this.add.sprite(glas.x, glas.y, 'fill').setOrigin(0, 0)
-    console.log('x', glas.x)
-    glas.reset()
-    glas.alpha = 1
-    //boom.anims.play('fill')
-    // boom.on('animationcomplete', () => {
-    //   console.log('animationcomplete')
-    //   glas.reset()
-    //   glas.alpha = 1
-    //   boom.destroy()
-    // })
+    const fill = glas.play('fill', false)
+    fill.on('animationcomplete', () => {
+      glas.reset()
+    })
     this.score += glas.points
     console.log(glas.points)
     console.log('Score: ' + Number(this.score))
