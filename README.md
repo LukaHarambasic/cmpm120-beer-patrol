@@ -40,10 +40,10 @@
 - [x] Adjust layout
   - [x] Add clock
   - [x] Remove border
-- [] Scenes
+- [x] Scenes
   - [x] Menu scene
   - [x] Game scene
-  - [] Title scene
+  - [x] Title scene
   - [x] Highscore scene
 - [x] Prefab
   - [x] New enemy (alcohol free beer)

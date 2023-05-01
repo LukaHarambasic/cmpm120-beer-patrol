@@ -17,7 +17,7 @@ export const THEME = {
   fontFamily: 'Dancing Script',
   fontSizes: {
     title: '32px',
-    body: '18px',
+    body: '22px',
     small: '16px',
   },
   textPadding: 8,
