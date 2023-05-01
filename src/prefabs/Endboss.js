@@ -13,7 +13,6 @@ export class Endboss extends GameObjects.Sprite {
   update() {
     this.x -= this.moveSpeed
     if (this.x <= 0 - this.width) {
-      console.log('tada')
       this.reset()
     }
   }

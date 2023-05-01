@@ -27,12 +27,27 @@ export class MenuScene extends Scene {
       padding: THEME.textPadding,
       fixedWidth: 0,
     }
+    const STYLE_ITEM = {
+      fontFamily: THEME.fontFamily,
+      fontSize: THEME.fontSizes.small,
+      backgroundColor: THEME.dark,
+      color: THEME.onDark,
+      align: 'center',
+      padding: THEME.textPaddingSmall,
+      fixedWidth: 0,
+    }
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
 
     this.add.text(THEME.width / 2, 100, 'BEER PATROL', STYLE_TITLE).setOrigin(0.5)
     this.add.text(THEME.width / 2, 200, 'Use ←→ arrows to move & (F) to fill the glasses', STYLE_BODY).setOrigin(0.5)
     this.add.text(THEME.width / 2, 250, 'Press ← for Novice or → for German', STYLE_BODY).setOrigin(0.5)
     this.add.text(THEME.width / 2, THEME.height - 50, 'Press (H) for the local highscore', STYLE_BODY).setOrigin(0.5)
+
+    const lastScore = Storage.currentScore
+    console.log(lastScore)
+    if (lastScore > 0) {
+      this.add.text(THEME.width / 2, 350, `Last score: ${lastScore}`, STYLE_ITEM).setOrigin(0.5)
+    }
 
     this.keyLeft = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT)
     this.keyRight = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)

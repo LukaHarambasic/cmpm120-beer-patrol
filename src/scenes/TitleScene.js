@@ -17,6 +17,7 @@ export class TitleScene extends Scene {
   }
 
   create() {
+    console.log('titleScene')
     this.anims.create({
       key: 'empty',
       frames: this.anims.generateFrameNames('beer', {
@@ -47,9 +48,6 @@ export class TitleScene extends Scene {
       frameRate: 8,
       repeat: 0,
     })
-    // TODO remove
-    this.scene.start('gameScene')
-    console.log('titleScene')
     const STYLE_TITLE = {
       fontFamily: THEME.fontFamily,
       fontSize: THEME.fontSizes.title,

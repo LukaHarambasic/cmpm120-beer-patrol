@@ -9,7 +9,7 @@
 
 ### 5 Points: 3x5=15
 
-- [] Track a high score that persists across scenes and display it in the UI (5)
+- [x] Track a high score that persists across scenes and display it in the UI (5)
 - [] Add your own (copyright-free) background music to the Play scene (please be mindful of the volume) (5)
 - [x] Create a new scrolling tile sprite for the background (5)
 
@@ -33,21 +33,22 @@
   - [x] Ships -> Wiggly empty beer glasses (Weizen)
   - [x] Beer hit animation -> Filling beer glasses (Weizen)
   - [x] Background -> baverian flag pattern
-  - [] Alc free beer
+  - [x] Alc free beer
 - [] Find music
   - [] Background music - Schlager?
   - [] 4 beer filling sounds
-- [] Adjust layout
-  - [] Add clock
+- [x] Adjust layout
+  - [x] Add clock
   - [x] Remove border
 - [] Scenes
-  - [] Disclaimer scene
+  - [x] Menu scene
+  - [x] Game scene
   - [] Title scene
-  - [] Highscore scene
-- [] Prefab
-  - [] New enemy (alcohol free beer)
-- [] Logic
-  - [] Add time after enemy got hit (game should also become quicker??)
+  - [x] Highscore scene
+- [x] Prefab
+  - [x] New enemy (alcohol free beer)
+- [x] Logic
+  - [x] Add time after enemy got hit (game should also become quicker??)
   - [] Add mouse control for player movement and shooting
 - UI
   - [x] Add sprite to glasses

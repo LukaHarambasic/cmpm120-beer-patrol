@@ -12,12 +12,16 @@ export const THEME = {
   height: 480,
   primary: '#FAE44C',
   onPrimary: '#000000',
+  dark: '#000000',
+  onDark: '#FFFFFF',
   fontFamily: 'Arial',
   fontSizes: {
     title: '28px',
     body: '16px',
+    small: '14px',
   },
   textPadding: 8,
+  textPaddingSmall: 4,
 }
 
 const config = {

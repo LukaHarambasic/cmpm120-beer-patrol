@@ -60,7 +60,7 @@ export class GameScene extends Scene {
       Storage.currentScore = this.score
       Storage.tryHighscore(this.score)
       this.isScoreSet = true
-      // this.scene.start('highscoreScene')
+      this.scene.start('highscoreScene')
     }
     if (!isTimeOver) {
       this.tap.update()

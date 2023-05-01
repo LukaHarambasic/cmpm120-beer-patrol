@@ -12,7 +12,6 @@ export class Enemy extends GameObjects.Sprite {
   update() {
     this.x -= this.moveSpeed
     if (this.x <= 0 - this.width) {
-      console.log('enemy reset - update')
       this.reset()
     }
   }

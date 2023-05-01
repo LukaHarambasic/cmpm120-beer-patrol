@@ -3,7 +3,6 @@ import { THEME } from '../main'
 
 export class Tap extends GameObjects.Sprite {
   constructor(scene, x, y, texture, frame) {
-    console.log('Tap')
     super(scene, x, y, texture, frame)
     scene.add.existing(this)
     this.initialY = y
@@ -12,15 +11,15 @@ export class Tap extends GameObjects.Sprite {
     // this.sfxRocket = scene.sound.add('sfx_rocket')
 
     this.keyF = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.F)
-    this.keyLEFT = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT)
-    this.keyRIGHT = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)
+    this.keyLeft = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT)
+    this.keyRright = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)
   }
 
   update() {
     if (!this.isFiring) {
-      if (this.keyLEFT.isDown && this.x >= 0 + this.width) {
+      if (this.keyLeft.isDown && this.x >= 0 + this.width) {
         this.x -= this.moveSpeed
-      } else if (this.keyRIGHT.isDown && this.x <= THEME.width - this.width) {
+      } else if (this.keyRright.isDown && this.x <= THEME.width - this.width) {
         this.x += this.moveSpeed
       }
     }
