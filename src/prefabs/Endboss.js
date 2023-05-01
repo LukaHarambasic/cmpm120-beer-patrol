@@ -7,7 +7,7 @@ export class Endboss extends GameObjects.Sprite {
     super(scene, x, y, texture, frame)
     scene.add.existing(this)
     this.points = pointValue
-    this.moveSpeed = Storage.speed * 1.75
+    this.moveSpeed = Storage.enemySpeed * 1.75
   }
 
   update() {

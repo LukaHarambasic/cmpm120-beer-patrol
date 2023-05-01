@@ -7,7 +7,7 @@ export class Enemy extends GameObjects.Sprite {
     super(scene, x, y, texture, frame)
     scene.add.existing(this)
     this.points = pointValue
-    this.moveSpeed = Storage.speed * 1.5
+    this.moveSpeed = Storage.enemySpeed
   }
   update() {
     this.x -= this.moveSpeed

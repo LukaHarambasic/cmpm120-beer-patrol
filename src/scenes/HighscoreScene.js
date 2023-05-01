@@ -45,6 +45,11 @@ export class HighscoreScene extends Scene {
       padding: THEME.textPaddingSmall,
       fixedWidth: 0,
     }
+
+    const gameScene = this.scene.get('gameScene')
+    gameScene.scene.stop()
+    gameScene.scene.restart()
+
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
     this.add.text(THEME.width / 2, 100, 'HIGHSCORE', STYLE_TITLE).setOrigin(0.5)
 
@@ -53,9 +58,6 @@ export class HighscoreScene extends Scene {
 
     const highscore = Storage.highscore
     const position = highscore.indexOf(currentScore)
-    console.log(currentScore)
-    console.log(highscore)
-    console.log(position)
     highscore.forEach((value, i) => {
       const y = 200 + i * 35
       const text = `${i + 1}. ${value}`
@@ -68,5 +70,13 @@ export class HighscoreScene extends Scene {
     })
 
     this.add.text(THEME.width / 2, THEME.height - 50, 'Press any key to continue.', STYLE_BODY).setOrigin(0.5)
+
+    this.input.keyboard.on(
+      'keydown',
+      () => {
+        this.scene.start('menuScene')
+      },
+      this,
+    )
   }
 }

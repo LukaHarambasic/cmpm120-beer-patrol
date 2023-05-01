@@ -56,8 +56,9 @@
 
 ## Credits
 
-- Beer tap https://unsplash.com/photos/nY24KlqSBh4
-- Beer glas https://unsplash.com/photos/8AC0YQJ2Fxc
+- Beer tap: https://unsplash.com/photos/nY24KlqSBh4
+- Beer glas: https://unsplash.com/photos/8AC0YQJ2Fxc
+- BretzeL: https://unsplash.com/photos/39cEDqW5_SY
 
 - Full beer: Photo by Engin Akyurt: https://www.pexels.com/photo/beer-filled-mug-on-table-1552630/
 - Empty class by Laura Amenda

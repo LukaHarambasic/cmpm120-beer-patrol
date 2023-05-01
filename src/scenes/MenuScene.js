@@ -38,7 +38,7 @@ export class MenuScene extends Scene {
     }
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
 
-    this.add.text(THEME.width / 2, 100, 'BEER PATROL', STYLE_TITLE).setOrigin(0.5)
+    this.add.text(THEME.width / 2, 100, 'Beer Patrol', STYLE_TITLE).setOrigin(0.5)
     this.add.text(THEME.width / 2, 200, 'Use ←→ arrows to move & (F) to fill the glasses', STYLE_BODY).setOrigin(0.5)
     this.add.text(THEME.width / 2, 250, 'Press ← for Novice or → for German', STYLE_BODY).setOrigin(0.5)
     this.add.text(THEME.width / 2, THEME.height - 50, 'Press (H) for the local highscore', STYLE_BODY).setOrigin(0.5)
@@ -58,22 +58,24 @@ export class MenuScene extends Scene {
 
   update() {
     if (Input.Keyboard.JustDown(this.keyLeft)) {
-      this._startGame(3, 60 * 1000)
+      this._startGame(3, 4, 60 * 1000, 2 * 1000)
     }
     if (Input.Keyboard.JustDown(this.keyRight)) {
-      this._startGame(4, 45 * 1000)
+      this._startGame(4, 2, 45 * 1000, 0.5 * 1000)
     }
     if (Input.Keyboard.JustDown(this.keyH)) {
       this.scene.start('highscoreScene')
     }
     if (Input.Keyboard.JustDown(this.keyUp)) {
-      this._startGame(4, 1000)
+      this._startGame(4, 50, 5 * 1000, 1)
     }
   }
 
-  _startGame(speed, timer) {
-    Storage.speed = speed
+  _startGame(enemySpeed, tapSpeed, timer, timerBonus) {
+    Storage.enemySpeed = enemySpeed
+    Storage.tapSpeed = tapSpeed
     Storage.timer = timer
+    Storage.timerBonus = timerBonus
     this.sound.play('sfx_select')
     this.scene.start('gameScene')
   }

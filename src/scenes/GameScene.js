@@ -8,13 +8,18 @@ import { Storage } from '../utils/storage'
 export class GameScene extends Scene {
   constructor() {
     super('gameScene')
-    this.score = 0
-    this.timer = Storage.timer
-    this.isScoreSet = false
   }
 
   create() {
     console.log('GameScene')
+    console.log('start', Math.round(this.time.startTime / 1000))
+    console.log('now', Math.round(this.time.now / 1000))
+    console.log('real time running', Math.round((this.time.startTime - this.time.now) / 1000))
+    this.score = 0
+    this.timer = Storage.timer
+    this.isScoreSet = false
+
+    // background
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
     this.counter = this.add.tileSprite(0, THEME.height - 50, THEME.width, 50, 'counter').setOrigin(0, 0)
 

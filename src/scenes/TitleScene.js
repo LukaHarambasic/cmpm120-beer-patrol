@@ -67,7 +67,7 @@ export class TitleScene extends Scene {
       fixedWidth: 0,
     }
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
-    this.add.text(THEME.width / 2, 100, 'BEER PATROL', STYLE_TITLE).setOrigin(0.5)
+    this.add.text(THEME.width / 2, 100, 'Beer Patrol', STYLE_TITLE).setOrigin(0.5)
     this.add.text(THEME.width / 2, 200, 'TODO: Disclaimer text and motivation', STYLE_BODY).setOrigin(0.5)
     this.add.text(THEME.width / 2, THEME.height - 50, 'Press any key to continue.', STYLE_BODY).setOrigin(0.5)
 
