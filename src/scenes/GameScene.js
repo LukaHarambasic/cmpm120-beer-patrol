@@ -103,7 +103,7 @@ export class GameScene extends Scene {
     })
     this.score += enemy.points
     this.scoreBox.text = this.score
-    this.timer = Number(this.timer) + Number(1000 * 2)
+    this.timer = Number(this.timer) + Number(1000 * 1)
     //this.sound.play('sfx_fill')
   }
 }
