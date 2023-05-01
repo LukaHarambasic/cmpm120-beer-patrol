@@ -46,12 +46,8 @@ export class HighscoreScene extends Scene {
       fixedWidth: 0,
     }
 
-    const gameScene = this.scene.get('gameScene')
-    gameScene.scene.stop()
-    gameScene.scene.restart()
-
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
-    this.add.text(THEME.width / 2, 100, 'HIGHSCORE', STYLE_TITLE).setOrigin(0.5)
+    this.add.text(THEME.width / 2, 100, 'Highscore', STYLE_TITLE).setOrigin(0.5)
 
     const currentScore = Storage.currentScore
     this.add.text(THEME.width / 2, 150, `Score: ${currentScore}`, STYLE_BODY).setOrigin(0.5)

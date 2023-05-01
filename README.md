@@ -28,7 +28,7 @@
 
 ## Todos
 
-- [] Create/Find graphics
+- [x] Create/Find graphics
   - [x] Rocket -> Beer Tap
   - [x] Ships -> Wiggly empty beer glasses (Weizen)
   - [x] Beer hit animation -> Filling beer glasses (Weizen)

@@ -11,13 +11,11 @@ export class GameScene extends Scene {
   }
 
   create() {
-    console.log('GameScene')
-    console.log('start', Math.round(this.time.startTime / 1000))
-    console.log('now', Math.round(this.time.now / 1000))
-    console.log('real time running', Math.round((this.time.startTime - this.time.now) / 1000))
+    console.log('gameScene')
     this.score = 0
-    this.timer = Storage.timer
+    this.countdown = Storage.initialCountdown
     this.isScoreSet = false
+    console.log('countdown', this.countdown)
 
     // background
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
@@ -33,8 +31,8 @@ export class GameScene extends Scene {
       fixedWidth: 80,
     }
     this.scoreBox = this.add.text(10, THEME.height - 40, this.score, STYLE_BODY).setOrigin(0, 0)
-    this.timerBox = this.add
-      .text(THEME.width - 80 - 10, THEME.height - 40, this.timer / 1000, STYLE_BODY)
+    this.countdownBox = this.add
+      .text(THEME.width - 80 - 10, THEME.height - 40, this.countdown, STYLE_BODY)
       .setOrigin(0, 0)
 
     this.enemy01 = new Enemy(this, THEME.width, 5, 'beer', 0, 30).setOrigin(0, 0)
@@ -53,21 +51,30 @@ export class GameScene extends Scene {
     this.keyR = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.R)
     this.keyLeft = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT)
     this.keyRight = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)
+
+    this.time.addEvent({
+      delay: 1000,
+      callback: () => {
+        this.countdown--
+        this.countdownBox.text = this.countdown
+      },
+      loop: true,
+    })
   }
 
   update() {
     this.background.tilePositionX -= 1.5
-
-    const timeLeft = this.timer - this.time.now
-    const isTimeOver = timeLeft <= 0
-    this.timerBox.text = timeLeft <= 0 ? 0 : Math.ceil(timeLeft / 1000)
-    if (isTimeOver && !this.isScoreSet) {
+    const isGameOver = this.countdown <= 0
+    if (isGameOver && !this.isScoreSet) {
+      // console.log('game over')
       Storage.currentScore = this.score
       Storage.tryHighscore(this.score)
       this.isScoreSet = true
+      this.scene.stop()
       this.scene.start('highscoreScene')
     }
-    if (!isTimeOver) {
+    if (!isGameOver) {
+      // console.log('not game over')
       this.tap.update()
       this.endboss.update()
       this.enemy01.update()
@@ -108,7 +115,7 @@ export class GameScene extends Scene {
     })
     this.score += enemy.points
     this.scoreBox.text = this.score
-    this.timer = Number(this.timer) + Number(1000 * 1)
+    this.countdown = Number(this.countdown) + Number(Storage.countdownBonus)
     //this.sound.play('sfx_fill')
   }
 }

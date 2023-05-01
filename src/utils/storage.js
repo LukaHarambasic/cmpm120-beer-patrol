@@ -15,20 +15,20 @@ export class Storage {
     return localStorage.getItem('tapSpeed') || 4 // easy mode
   }
 
-  static set timer(value) {
-    localStorage.setItem('timer', value)
+  static set initialCountdown(value) {
+    localStorage.setItem('initialCountdown', value)
   }
 
-  static get timer() {
-    return localStorage.getItem('timer') || 5 * 1000 // 60 * 1000 // easy mode
+  static get initialCountdown() {
+    return localStorage.getItem('initialCountdown') || 5 // 60// easy mode
   }
 
-  static set timerBonus(value) {
-    localStorage.setItem('timerBonus', value)
+  static set countdownBonus(value) {
+    localStorage.setItem('countdownBonus', value)
   }
 
-  static get timerBonus() {
-    return localStorage.getItem('timerBonus') || 2 * 1000 // easy mode
+  static get countdownBonus() {
+    return localStorage.getItem('countdownBonus') || 2 // easy mode
   }
 
   static set currentScore(value) {

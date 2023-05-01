@@ -44,7 +44,6 @@ export class MenuScene extends Scene {
     this.add.text(THEME.width / 2, THEME.height - 50, 'Press (H) for the local highscore', STYLE_BODY).setOrigin(0.5)
 
     const lastScore = Storage.currentScore
-    console.log(lastScore)
     if (lastScore > 0) {
       this.add.text(THEME.width / 2, 350, `Last score: ${lastScore}`, STYLE_ITEM).setOrigin(0.5)
     }
@@ -52,30 +51,31 @@ export class MenuScene extends Scene {
     this.keyLeft = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT)
     this.keyRight = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)
     this.keyH = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.H)
-    // psssst just for testing purposes
+    // pssssssssst just for testing purposes
     this.keyUp = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.UP)
   }
 
   update() {
     if (Input.Keyboard.JustDown(this.keyLeft)) {
-      this._startGame(3, 4, 60 * 1000, 2 * 1000)
+      this._startGame(3, 4, 60, 2)
     }
     if (Input.Keyboard.JustDown(this.keyRight)) {
-      this._startGame(4, 2, 45 * 1000, 0.5 * 1000)
+      this._startGame(4, 2, 45, 0.5)
     }
     if (Input.Keyboard.JustDown(this.keyH)) {
       this.scene.start('highscoreScene')
     }
     if (Input.Keyboard.JustDown(this.keyUp)) {
-      this._startGame(4, 50, 5 * 1000, 1)
+      this._startGame(4, 50, 5, 1)
     }
   }
 
-  _startGame(enemySpeed, tapSpeed, timer, timerBonus) {
+  _startGame(enemySpeed, tapSpeed, initialCountdown, countdownBonus) {
+    console.log('startGame')
     Storage.enemySpeed = enemySpeed
     Storage.tapSpeed = tapSpeed
-    Storage.timer = timer
-    Storage.timerBonus = timerBonus
+    Storage.initialCountdown = initialCountdown
+    Storage.countdownBonus = countdownBonus
     this.sound.play('sfx_select')
     this.scene.start('gameScene')
   }
