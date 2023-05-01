@@ -17,6 +17,37 @@ export class TitleScene extends Scene {
   }
 
   create() {
+    this.anims.create({
+      key: 'empty',
+      frames: this.anims.generateFrameNames('beer', {
+        prefix: 'beer_empty_',
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 3,
+      repeat: -1,
+    })
+    this.anims.create({
+      key: 'alcfree',
+      frames: this.anims.generateFrameNames('beer', {
+        prefix: 'beer_00_',
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 8,
+      repeat: -1,
+    })
+    this.anims.create({
+      key: 'fill',
+      frames: this.anims.generateFrameNames('beer', {
+        prefix: 'beer_full_',
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 8,
+      repeat: 0,
+    })
+    // TODO remove
     this.scene.start('gameScene')
     console.log('titleScene')
     const STYLE_TITLE = {

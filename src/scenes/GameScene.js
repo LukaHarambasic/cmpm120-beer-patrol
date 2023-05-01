@@ -1,47 +1,45 @@
 import { Scene, Input } from 'phaser'
 import { THEME } from '../main'
 import { Tap } from '../prefabs/Tap'
-import { Glas } from '../prefabs/Glas'
+import { Enemy } from '../prefabs/Enemy'
+import { Endboss } from '../prefabs/Endboss'
+import { Storage } from '../utils/storage'
 
 export class GameScene extends Scene {
   constructor() {
     super('gameScene')
+    this.score = 0
+    this.timer = Storage.timer
   }
 
   create() {
-    this.anims.create({
-      key: 'idle',
-      frames: this.anims.generateFrameNames('beer', {
-        prefix: 'beer_empty_',
-        start: 0,
-        end: 3,
-      }),
-      frameRate: 3,
-      repeat: -1,
-    })
-    this.anims.create({
-      key: 'fill',
-      frames: this.anims.generateFrameNames('beer', {
-        prefix: 'beer_full_',
-        start: 0,
-        end: 3,
-      }),
-      frameRate: 8,
-      repeat: 0,
-    })
     console.log('GameScene')
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
     this.counter = this.add.tileSprite(0, THEME.height - 50, THEME.width, 50, 'counter').setOrigin(0, 0)
 
-    // TODO I think this should be a group
-    this.glas01 = new Glas(this, THEME.width, 50, 'beer', 0, 30).setOrigin(0, 0)
-    this.glas02 = new Glas(this, THEME.width + 100, 100, 'beer', 0, 20).setOrigin(0, 0)
-    this.glas03 = new Glas(this, THEME.width + 200, 150, 'beer', 0, 10).setOrigin(0, 0)
-    this.glas01.play('idle', true)
-    this.glas02.play('idle', true)
-    this.glas03.play('idle', true)
+    const STYLE_BODY = {
+      fontFamily: THEME.fontFamily,
+      fontSize: THEME.fontSizes.body,
+      backgroundColor: THEME.primary,
+      color: THEME.onPrimary,
+      align: 'center',
+      padding: THEME.textPadding,
+      fixedWidth: 80,
+    }
+    this.scoreBox = this.add.text(10, THEME.height - 40, this.score, STYLE_BODY).setOrigin(0, 0)
+    this.timerBox = this.add
+      .text(THEME.width - 80 - 10, THEME.height - 40, this.timer / 1000, STYLE_BODY)
+      .setOrigin(0, 0)
 
-    // this.test = this.add.sprite(20, 20, 'beer', 'beer_empty_0')
+    this.enemy01 = new Enemy(this, THEME.width, 5, 'beer', 0, 30).setOrigin(0, 0)
+    this.enemy02 = new Enemy(this, THEME.width + 100, 55, 'beer', 0, 20).setOrigin(0, 0)
+    this.enemy03 = new Enemy(this, THEME.width + 200, 105, 'beer', 0, 10).setOrigin(0, 0)
+    this.endboss = new Endboss(this, THEME.width + 200, 175, 'beer', 0, 80).setOrigin(0, 0)
+    // as everything is one sprite sheet, we need to play the animation to get the correct frame
+    this.enemy01.play('empty', true)
+    this.enemy02.play('empty', true)
+    this.enemy03.play('empty', true)
+    this.endboss.play('alcfree', true)
 
     this.tap = new Tap(this, THEME.width / 2, THEME.height - 100, 'tap').setOrigin(0.5, 0)
 
@@ -52,39 +50,42 @@ export class GameScene extends Scene {
   }
 
   update() {
-    if (this.gameOver && Input.Keyboard.JustDown(this.keyR)) {
-      this.scene.restart()
-    }
-
-    if (this.gameOver && Input.Keyboard.JustDown(this.keyLEFT)) {
-      this.scene.start('menuScene')
-    }
-
-    //TODO enable again
     this.background.tilePositionX -= 1.5
 
-    if (!this.gameOver) {
+    const timeLeft = this.timer - this.time.now
+    const isTimeOver = timeLeft <= 0
+    if (isTimeOver) {
+      this.gameOver = true
+      // TODO persist current score
+      // this.scene.start('highscoreScene')
+    } else {
       this.tap.update()
-      this.glas01.update()
-      this.glas02.update()
-      this.glas03.update()
+      this.endboss.update()
+      this.enemy01.update()
+      this.enemy02.update()
+      this.enemy03.update()
+      this.timerBox.text = timeLeft <= 0 ? 0 : Math.ceil(timeLeft / 1000)
     }
 
-    if (this.checkCollision(this.tap, this.glas03)) {
+    if (this._checkCollision(this.tap, this.endboss)) {
       this.tap.reset()
-      this.fillGlas(this.glas03)
+      this._collision(this.endboss)
     }
-    if (this.checkCollision(this.tap, this.glas02)) {
+    if (this._checkCollision(this.tap, this.enemy01)) {
       this.tap.reset()
-      this.fillGlas(this.glas02)
+      this._collision(this.enemy01)
     }
-    if (this.checkCollision(this.tap, this.glas01)) {
+    if (this._checkCollision(this.tap, this.enemy02)) {
       this.tap.reset()
-      this.fillGlas(this.glas01)
+      this._collision(this.enemy02)
+    }
+    if (this._checkCollision(this.tap, this.enemy03)) {
+      this.tap.reset()
+      this._collision(this.enemy03)
     }
   }
 
-  checkCollision(a, b) {
+  _checkCollision(a, b) {
     if (a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.height + a.y > b.y) {
       return true
     } else {
@@ -92,15 +93,16 @@ export class GameScene extends Scene {
     }
   }
 
-  fillGlas(glas) {
-    const fill = glas.play('fill', false)
-    fill.on('animationcomplete', () => {
-      glas.reset()
+  _collision(enemy) {
+    console.log('collision')
+    const animation = enemy.play('fill', false)
+    animation.on('animationcomplete', () => {
+      console.log('animationcomplete')
+      enemy.reset()
     })
-    this.score += glas.points
-    console.log(glas.points)
-    console.log('Score: ' + Number(this.score))
-    //this.scoreLeft.text = this.score
+    this.score += enemy.points
+    this.scoreBox.text = this.score
+    this.timer = Number(this.timer) + Number(1000 * 5)
     //this.sound.play('sfx_fill')
   }
 }

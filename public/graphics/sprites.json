@@ -1,40 +1,40 @@
 {
   "frames": [
     {
-      "filename": "beer_full_0",
-      "frame": { "x": 0, "y": 0, "w": 53, "h": 64 },
+      "filename": "beer_00_0",
+      "frame": { "x": 162, "y": 130, "w": 53, "h": 32 },
       "rotated": false,
       "trimmed": false,
-      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
-      "sourceSize": { "w": 53, "h": 64 }
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 32 },
+      "sourceSize": { "w": 53, "h": 32 }
     },
     {
-      "filename": "beer_full_1",
-      "frame": { "x": 54, "y": 0, "w": 53, "h": 64 },
+      "filename": "beer_00_1",
+      "frame": { "x": 108, "y": 65, "w": 53, "h": 32 },
       "rotated": false,
       "trimmed": false,
-      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
-      "sourceSize": { "w": 53, "h": 64 }
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 32 },
+      "sourceSize": { "w": 53, "h": 32 }
     },
     {
-      "filename": "beer_full_2",
-      "frame": { "x": 0, "y": 65, "w": 53, "h": 64 },
+      "filename": "beer_00_2",
+      "frame": { "x": 54, "y": 65, "w": 53, "h": 32 },
       "rotated": false,
       "trimmed": false,
-      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
-      "sourceSize": { "w": 53, "h": 64 }
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 32 },
+      "sourceSize": { "w": 53, "h": 32 }
     },
     {
-      "filename": "beer_full_3",
-      "frame": { "x": 54, "y": 65, "w": 53, "h": 64 },
+      "filename": "beer_00_3",
+      "frame": { "x": 0, "y": 0, "w": 53, "h": 32 },
       "rotated": false,
       "trimmed": false,
-      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
-      "sourceSize": { "w": 53, "h": 64 }
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 32 },
+      "sourceSize": { "w": 53, "h": 32 }
     },
     {
       "filename": "beer_empty_0",
-      "frame": { "x": 108, "y": 0, "w": 53, "h": 64 },
+      "frame": { "x": 0, "y": 98, "w": 53, "h": 64 },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
@@ -42,7 +42,7 @@
     },
     {
       "filename": "beer_empty_1",
-      "frame": { "x": 108, "y": 65, "w": 53, "h": 64 },
+      "frame": { "x": 0, "y": 33, "w": 53, "h": 64 },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
@@ -50,7 +50,7 @@
     },
     {
       "filename": "beer_empty_2",
-      "frame": { "x": 0, "y": 130, "w": 53, "h": 64 },
+      "frame": { "x": 162, "y": 65, "w": 53, "h": 64 },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
@@ -58,7 +58,39 @@
     },
     {
       "filename": "beer_empty_3",
-      "frame": { "x": 54, "y": 130, "w": 53, "h": 64 },
+      "frame": { "x": 54, "y": 0, "w": 53, "h": 64 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
+      "sourceSize": { "w": 53, "h": 64 }
+    },
+    {
+      "filename": "beer_full_0",
+      "frame": { "x": 108, "y": 0, "w": 53, "h": 64 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
+      "sourceSize": { "w": 53, "h": 64 }
+    },
+    {
+      "filename": "beer_full_1",
+      "frame": { "x": 54, "y": 98, "w": 53, "h": 64 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
+      "sourceSize": { "w": 53, "h": 64 }
+    },
+    {
+      "filename": "beer_full_2",
+      "frame": { "x": 108, "y": 98, "w": 53, "h": 64 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
+      "sourceSize": { "w": 53, "h": 64 }
+    },
+    {
+      "filename": "beer_full_3",
+      "frame": { "x": 162, "y": 0, "w": 53, "h": 64 },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": { "x": 0, "y": 0, "w": 53, "h": 64 },
@@ -69,7 +101,7 @@
     "app": "https://www.leshylabs.com/apps/sstool/",
     "version": "Leshy SpriteSheet Tool v0.8.4",
     "image": "spritesheet.png",
-    "size": { "w": 161, "h": 194 },
+    "size": { "w": 215, "h": 162 },
     "scale": 1
   }
 }

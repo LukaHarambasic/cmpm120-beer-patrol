@@ -8,7 +8,7 @@ export class Tap extends GameObjects.Sprite {
     scene.add.existing(this)
     this.initialY = y
     this.isFiring = false
-    this.moveSpeed = 2
+    this.moveSpeed = 4
     // this.sfxRocket = scene.sound.add('sfx_rocket')
 
     this.keyF = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.F)
