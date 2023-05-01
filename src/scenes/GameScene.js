@@ -10,6 +10,7 @@ export class GameScene extends Scene {
     super('gameScene')
     this.score = 0
     this.timer = Storage.timer
+    this.isScoreSet = false
   }
 
   create() {
@@ -54,17 +55,19 @@ export class GameScene extends Scene {
 
     const timeLeft = this.timer - this.time.now
     const isTimeOver = timeLeft <= 0
-    if (isTimeOver) {
-      this.gameOver = true
-      // TODO persist current score
+    this.timerBox.text = timeLeft <= 0 ? 0 : Math.ceil(timeLeft / 1000)
+    if (isTimeOver && !this.isScoreSet) {
+      Storage.currentScore = this.score
+      Storage.tryHighscore(this.score)
+      this.isScoreSet = true
       // this.scene.start('highscoreScene')
-    } else {
+    }
+    if (!isTimeOver) {
       this.tap.update()
       this.endboss.update()
       this.enemy01.update()
       this.enemy02.update()
       this.enemy03.update()
-      this.timerBox.text = timeLeft <= 0 ? 0 : Math.ceil(timeLeft / 1000)
     }
 
     if (this._checkCollision(this.tap, this.endboss)) {
@@ -94,15 +97,13 @@ export class GameScene extends Scene {
   }
 
   _collision(enemy) {
-    console.log('collision')
     const animation = enemy.play('fill', false)
     animation.on('animationcomplete', () => {
-      console.log('animationcomplete')
       enemy.reset()
     })
     this.score += enemy.points
     this.scoreBox.text = this.score
-    this.timer = Number(this.timer) + Number(1000 * 5)
+    this.timer = Number(this.timer) + Number(1000 * 2)
     //this.sound.play('sfx_fill')
   }
 }
