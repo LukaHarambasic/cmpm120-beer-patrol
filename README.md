@@ -1,6 +1,6 @@
 # Beer Patrol
 
-[Game](https://github.com/LukaHarambasic/cmpm120-rocket-patrol)
+[Game](https://lukaharambasic.github.io/cmpm120-beer-patrol/)
 
 ## Points
 
