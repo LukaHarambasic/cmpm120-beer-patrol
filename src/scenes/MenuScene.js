@@ -5,6 +5,7 @@ import { Storage } from '../utils/storage'
 export class MenuScene extends Scene {
   constructor() {
     super('menuScene')
+    this.backgroundMusic = null
   }
 
   create() {
@@ -37,7 +38,9 @@ export class MenuScene extends Scene {
       fixedWidth: 0,
     }
 
-    this.sound.add('sfx_background', { loop: true, volume: 0.5 }).play()
+    if (this.backgroundMusic === null) {
+      this.backgroundMusic = this.sound.add('sfx_background', { loop: true, volume: 0.5 }).play()
+    }
 
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
 
