@@ -13,14 +13,25 @@ export class Tap extends GameObjects.Sprite {
 
     this.keyF = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.F)
     this.keyLeft = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT)
-    this.keyRright = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)
+    this.keyRight = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)
+
+    scene.input.on('pointermove', (pointer) => {
+      this.direction = pointer.x < THEME.width / 2 ? 'left' : 'right'
+      // TODO remove direction if pointer is not on canvas
+      //console.log(pointer.x)
+    })
+
+    scene.input.on('pointerdown', (_) => {
+      this.isFiring = true
+    })
   }
 
   update() {
     if (!this.isFiring) {
-      if (this.keyLeft.isDown && this.x >= 0 + this.width) {
+      if ((this.keyLeft.isDown || this.direction === 'left') && this.x >= this.width) {
         this.x -= this.moveSpeed
-      } else if (this.keyRright.isDown && this.x <= THEME.width - this.width) {
+      }
+      if ((this.keyRight.isDown || this.direction === 'right') && this.x <= THEME.width - this.width) {
         this.x += this.moveSpeed
       }
     }

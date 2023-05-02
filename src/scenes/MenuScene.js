@@ -40,7 +40,10 @@ export class MenuScene extends Scene {
 
     this.add.text(THEME.width / 2, 100, 'Beer Patrol', STYLE_TITLE).setOrigin(0.5)
     this.add.text(THEME.width / 2, 200, 'Use ←→ arrows to move & (F) to fill the glasses', STYLE_BODY).setOrigin(0.5)
-    this.add.text(THEME.width / 2, 250, 'Press ← for Novice or → for German', STYLE_BODY).setOrigin(0.5)
+    this.add
+      .text(THEME.width / 2, 250, 'Move the mouse to the left & the right, and click to fill the glasses', STYLE_BODY)
+      .setOrigin(0.5)
+    this.add.text(THEME.width / 2, 300, 'Press ← for Beginner or → for German', STYLE_BODY).setOrigin(0.5)
     this.add.text(THEME.width / 2, THEME.height - 50, 'Press (H) for the local highscore', STYLE_BODY).setOrigin(0.5)
 
     const lastScore = Storage.currentScore

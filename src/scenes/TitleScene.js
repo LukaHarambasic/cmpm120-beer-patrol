@@ -104,7 +104,7 @@ export class TitleScene extends Scene {
     this.input.keyboard.on(
       'keydown',
       () => {
-        // this.scene.start('menuScene')
+        this.scene.start('menuScene')
       },
       this,
     )

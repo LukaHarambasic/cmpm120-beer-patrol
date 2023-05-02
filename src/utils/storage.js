@@ -4,7 +4,7 @@ export class Storage {
   }
 
   static get enemySpeed() {
-    return localStorage.getItem('enemySpeed') || 3 // easy mode
+    return parseInt(localStorage.getItem('enemySpeed')) || 3 // easy mode
   }
 
   static set tapSpeed(value) {
@@ -12,7 +12,7 @@ export class Storage {
   }
 
   static get tapSpeed() {
-    return localStorage.getItem('tapSpeed') || 4 // easy mode
+    return parseInt(localStorage.getItem('tapSpeed')) || 4 // easy mode
   }
 
   static set initialCountdown(value) {
@@ -20,7 +20,7 @@ export class Storage {
   }
 
   static get initialCountdown() {
-    return localStorage.getItem('initialCountdown') || 5 // 60// easy mode
+    return parseInt(localStorage.getItem('initialCountdown')) || 5 // 60// easy mode
   }
 
   static set countdownBonus(value) {
@@ -28,7 +28,7 @@ export class Storage {
   }
 
   static get countdownBonus() {
-    return localStorage.getItem('countdownBonus') || 2 // easy mode
+    return parseInt(localStorage.getItem('countdownBonus')) || 2 // easy mode
   }
 
   static set currentScore(value) {
@@ -36,7 +36,7 @@ export class Storage {
   }
 
   static get currentScore() {
-    return Number(localStorage.getItem('currentScore')) || 0
+    return parseInt(localStorage.getItem('currentScore')) || 0
   }
 
   static tryHighscore(value) {

@@ -18,7 +18,7 @@
 - [] Create 4 new explosion sound effects and randomize which one plays on impact (10)
 - [x] Display the time remaining (in seconds) on the screen (10)
 - [x] Using a texture atlas, create a new animated sprite for the Spaceship enemies (10)
-- [] Create a new title screen (e.g., new artwork, typography, layout) (10)
+- [x] Create a new title screen (e.g., new artwork, typography, layout) (10)
 
 ### 15 Points: 3x15=45
 
@@ -49,7 +49,7 @@
   - [x] New enemy (alcohol free beer)
 - [x] Logic
   - [x] Add time after enemy got hit (game should also become quicker??)
-  - [] Add mouse control for player movement and shooting
+  - [x] Add mouse control for player movement and shooting
 - UI
   - [x] Add sprite to glasses
   - [x] Add fill anitmation to glasses
