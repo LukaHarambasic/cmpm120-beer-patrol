@@ -79,7 +79,8 @@ export class MenuScene extends Scene {
     Storage.tapSpeed = tapSpeed
     Storage.initialCountdown = initialCountdown
     Storage.countdownBonus = countdownBonus
-    this.sound.play('sfx_select')
+    const randomNumber = Math.floor(Math.random() * 4) + 1
+    this.sound.play(`sfx${randomNumber}`)
     this.scene.start('gameScene')
   }
 }

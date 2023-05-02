@@ -15,9 +15,7 @@ export class GameScene extends Scene {
     this.score = 0
     this.countdown = Storage.initialCountdown
     this.isScoreSet = false
-    console.log('countdown', this.countdown)
 
-    // background
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
     this.counter = this.add.tileSprite(0, THEME.height - 50, THEME.width, 50, 'counter').setOrigin(0, 0)
 
@@ -66,7 +64,6 @@ export class GameScene extends Scene {
     this.background.tilePositionX -= 1.5
     const isGameOver = this.countdown <= 0
     if (isGameOver && !this.isScoreSet) {
-      // console.log('game over')
       Storage.currentScore = this.score
       Storage.tryHighscore(this.score)
       this.isScoreSet = true
@@ -74,7 +71,6 @@ export class GameScene extends Scene {
       this.scene.start('highscoreScene')
     }
     if (!isGameOver) {
-      // console.log('not game over')
       this.tap.update()
       this.endboss.update()
       this.enemy01.update()
@@ -116,6 +112,7 @@ export class GameScene extends Scene {
     this.score += enemy.points
     this.scoreBox.text = this.score
     this.countdown = Number(this.countdown) + Number(Storage.countdownBonus)
-    //this.sound.play('sfx_fill')
+    const randomNumber = Math.floor(Math.random() * 4) + 1
+    this.sound.play(`sfx${randomNumber}`)
   }
 }

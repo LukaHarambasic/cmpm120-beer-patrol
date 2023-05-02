@@ -9,7 +9,6 @@ export class Tap extends GameObjects.Sprite {
     this.initialY = y
     this.isFiring = false
     this.moveSpeed = Storage.tapSpeed
-    // this.sfxRocket = scene.sound.add('sfx_rocket')
 
     this.keyF = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.F)
     this.keyLeft = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT)
@@ -17,8 +16,6 @@ export class Tap extends GameObjects.Sprite {
 
     scene.input.on('pointermove', (pointer) => {
       this.direction = pointer.x < THEME.width / 2 ? 'left' : 'right'
-      // TODO remove direction if pointer is not on canvas
-      //console.log(pointer.x)
     })
 
     scene.input.on('pointerdown', (_) => {
@@ -37,13 +34,12 @@ export class Tap extends GameObjects.Sprite {
     }
     if (Input.Keyboard.JustDown(this.keyF) && !this.isFiring) {
       this.isFiring = true
+      //TODO: add sound
       // this.sfxRocket.play()
     }
-    // if fired, move up
     if (this.isFiring && this.y >= 0) {
       this.y -= this.moveSpeed
     }
-    // reset on miss
     if (this.y <= 0) {
       this.reset()
     }

@@ -13,7 +13,10 @@ export class TitleScene extends Scene {
     this.load.image('counter', './graphics/counter.png')
     this.load.image('bretzel', './graphics/bretzel.png')
     this.load.atlas('beer', './graphics/spritesheet.png', './graphics/sprites.json')
-    this.load.audio('sfx_select', './audio/blip_select12.wav')
+    this.load.audio('sfx1', './audio/sfx1.wav')
+    this.load.audio('sfx2', './audio/sfx2.wav')
+    this.load.audio('sfx3', './audio/sfx3.wav')
+    this.load.audio('sfx4', './audio/sfx4.wav')
   }
 
   create() {
@@ -104,6 +107,8 @@ export class TitleScene extends Scene {
     this.input.keyboard.on(
       'keydown',
       () => {
+        const randomNumber = Math.floor(Math.random() * 4) + 1
+        this.sound.play(`sfx${randomNumber}`)
         this.scene.start('menuScene')
       },
       this,

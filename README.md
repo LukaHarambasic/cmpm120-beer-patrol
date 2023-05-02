@@ -56,9 +56,18 @@
 
 ## Credits
 
+Graphics
+
 - Beer tap: https://unsplash.com/photos/nY24KlqSBh4
 - Beer glas: https://unsplash.com/photos/8AC0YQJ2Fxc
-- BretzeL: https://unsplash.com/photos/39cEDqW5_SY
+- Bretzel: https://unsplash.com/photos/39cEDqW5_SY
+- https://pixabay.com/sound-effects/heavy-swallowwav-14682/
+
+Sounds
+
+- https://pixabay.com/sound-effects/beerpour-91033/
+- https://pixabay.com/sound-effects/water-filled-cup-9901/
+- https://pixabay.com/sound-effects/drink-sip-and-swallow-6974/
 
 - Full beer: Photo by Engin Akyurt: https://www.pexels.com/photo/beer-filled-mug-on-table-1552630/
 - Empty class by Laura Amenda

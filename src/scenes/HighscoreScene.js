@@ -70,6 +70,8 @@ export class HighscoreScene extends Scene {
     this.input.keyboard.on(
       'keydown',
       () => {
+        const randomNumber = Math.floor(Math.random() * 4) + 1
+        this.sound.play(`sfx${randomNumber}`)
         this.scene.start('menuScene')
       },
       this,
