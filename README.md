@@ -73,3 +73,9 @@ Sounds
   - https://pixabay.com/sound-effects/heavy-swallowwav-14682/
 - Background
   - https://www.chosic.com/download-audio/27248/
+
+## Development
+
+- As the assets shouldn't be transformed by Vite they live in `/public`
+- To run this locally you first need to install the depedencies: `npm install`
+- To start the game locally use: `npm run dev`
