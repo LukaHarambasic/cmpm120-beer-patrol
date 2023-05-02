@@ -36,6 +36,9 @@ export class MenuScene extends Scene {
       padding: THEME.textPaddingSmall,
       fixedWidth: 0,
     }
+
+    this.sound.add('sfx_background', { loop: true, volume: 0.5 }).play()
+
     this.background = this.add.tileSprite(0, 0, THEME.width, THEME.height, 'background').setOrigin(0, 0)
 
     this.add.text(THEME.width / 2, 100, 'Beer Patrol', STYLE_TITLE).setOrigin(0.5)

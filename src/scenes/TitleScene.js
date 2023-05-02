@@ -17,6 +17,7 @@ export class TitleScene extends Scene {
     this.load.audio('sfx2', './audio/sfx2.wav')
     this.load.audio('sfx3', './audio/sfx3.wav')
     this.load.audio('sfx4', './audio/sfx4.wav')
+    this.load.audio('sfx_background', './audio/background.mp3')
   }
 
   create() {
@@ -94,6 +95,10 @@ export class TitleScene extends Scene {
         '"Beer Patrol" is a satirical party game that pokes fun at common German stereotypes in a lighthearted way. Players take on various silly challenges and tasks that playfully parody German culture and traditions, without promoting alcohol consumption or any other harmful behavior.',
         STYLE_CONTENT,
       )
+      .setOrigin(0.5)
+
+    this.add
+      .text(THEME.width / 2, THEME.height - 120, 'This is also a homage to my friends from Munich <3', STYLE_BODY)
       .setOrigin(0.5)
     this.add.text(THEME.width / 2, THEME.height - 50, 'Press any key to continue.', STYLE_BODY).setOrigin(0.5)
 
