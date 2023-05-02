@@ -1,3 +1,5 @@
+# Beer Patrol
+
 [Game](https://github.com/LukaHarambasic/cmpm120-rocket-patrol)
 
 - As the assets shouldn't be transformed by Vite they live in `/public`

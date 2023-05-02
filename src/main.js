@@ -1,3 +1,9 @@
+// Title: Beer Patrol
+// Author: Luka Harambasic
+// Hours: 14
+// Mods: see README.md
+// Sources: see README.md
+
 import { TitleScene } from './scenes/TitleScene'
 import { MenuScene } from './scenes/MenuScene'
 import { GameScene } from './scenes/GameScene'
