@@ -2,10 +2,6 @@
 
 [Game](https://github.com/LukaHarambasic/cmpm120-rocket-patrol)
 
-- As the assets shouldn't be transformed by Vite they live in `/public`
-- To run this locally you first need to install the depedencies: `npm install`
-- To start the game locally use: `npm run dev`
-
 ## Points
 
 ### 5 Points: 3x5=15
